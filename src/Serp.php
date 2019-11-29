@@ -14,7 +14,7 @@ class Serp {
         $this->guzzle = new HttpClient(['allow_redirects' => true]);
     }
 
-    public function load(string $query, int $page = 1): Dom {
+    public function load(string $query, int $page = 0): Dom {
         $request = '{"blocks":[{"block":"serp-list_infinite_yes","params":{},"version":2}]}';
         $url = 'https://yandex.ru/video/search?format=json&request=' . urlencode($request) . '&rdrnd=' . rand(1, 999999) . '&p=' . $page . '&text=' . urlencode($query);
         $httpResponse = $this->guzzle->get($url);
