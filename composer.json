@@ -1,0 +1,13 @@
+{
+    "name": "krokodilushka/yandex-video-parser",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "paquettg/php-html-parser": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "YandexVideoParser\\": ["src/"]
+        }
+    }
+}
