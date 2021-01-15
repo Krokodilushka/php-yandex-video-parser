@@ -62,9 +62,15 @@ class YandexVideoParser
             $iframe = $iframeElement->getIterator()->current()->getAttribute('src');
             $thumbs = $element->find('img[class=thumb-image__image]');
             if ($thumbs->count() == 0) {
-                throw new \Exception('Thumbnail not found');
+                $thumb2 = $element->find('div[class=serp-item__preview serp-item__preview_rounded]');
+                if ($thumb2->count() != 0 && preg_match('/background\-image: url\((.*)\)/', $thumb2->getIterator()->current()->getAttribute('style'), $matches)) {
+                    $thumb = $matches[1];
+                } else {
+                    throw new \Exception('Thumbnail not found');
+                }
+            } else {
+                $thumb = $thumbs->getIterator()->current()->getAttribute('src');
             }
-            $thumb = $thumbs->getIterator()->current()->getAttribute('src');
             $res[] = [
                 'id' => (int)$videoData->id,
                 'position' => $videoData->pos,
