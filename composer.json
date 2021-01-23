@@ -1,15 +1,17 @@
 {
-    "name": "krokodilushka/yandex-video-parser",
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^7.0",
-        "paquettg/php-html-parser": "^3.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "YandexVideoParser\\": [
-                "src/"
-            ]
-        }
+  "name": "krokodilushka/yandex-video-parser",
+  "type": "library",
+  "require": {
+    "php": "^7.3",
+    "guzzlehttp/guzzle": "^7.0",
+    "paquettg/php-html-parser": "^3.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "YandexVideoParser\\": [
+        "src/"
+      ]
     }
+  }
 }

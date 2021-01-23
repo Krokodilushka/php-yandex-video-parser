@@ -57,7 +57,8 @@ class YandexVideoParser
             }
             $iframeElement = (new Dom())->loadStr($videoData->player->noAutoplayHtml)->root->find('iframe[src]');
             if ($iframeElement->getIterator()->count() == 0) {
-                throw new \Exception('Iframe not found');
+                continue;
+//                throw new \Exception('Iframe not found');
             }
             $iframe = $iframeElement->getIterator()->current()->getAttribute('src');
             $thumbs = $element->find('img[class=thumb-image__image]');
