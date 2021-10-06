@@ -83,7 +83,7 @@ class YandexVideoParser
                 $thumb = $thumbs->getIterator()->current()->getAttribute('src');
             }
             $res[] = [
-                'id' => (int)$videoData->id,
+                'id' => $videoData->id,
                 'position' => $videoData->pos,
                 'url' => $videoData->url,
                 'title' => $videoData->title,
